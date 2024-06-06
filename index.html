@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta di Caricamento Video</title>
+</head>
+<body>
+    <h1>Proposta di Caricamento Video</h1>
+    <form id="uploadForm">
+        <label for="title">Titolo:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="description">Descrizione:</label><br>
+        <textarea id="description" name="description" rows="4" required></textarea><br>
+        <label for="video">Carica Video:</label><br>
+        <input type="file" id="video" name="video" accept="video/*" required><br>
+        <label for="category">Categoria:</label><br>
+        <select id="category" name="category" required>
+            <option value="">Seleziona una categoria</option>
+            <option value="Sport">Sport</option>
+            <option value="Musica">Musica</option>
+            <option value="Cucina">Cucina</option>
+            <!-- Aggiungi altre categorie secondo necessità -->
+        </select><br>
+        <button type="submit">Invia Proposta</button>
+    </form>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var json = {};
+            formData.forEach(function(value, key){
+                json[key] = value;
+            });
+            var jsonStr = JSON.stringify(json);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://api.github.com/repos/USERNAME/REPO/issues");
+            xhr.setRequestHeader("Authorization", "Bearer YOUR_GITHUB_TOKEN");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(jsonStr);
+            xhr.onload = function() {
+                if (xhr.status === 201) {
+                    alert("Proposta di caricamento video inviata con successo!");
+                    document.getElementById("uploadForm").reset();
+                } else {
+                    alert("Si è verificato un errore durante l'invio della proposta.");
+                }
+            };
+        });
+    </script>
+</body>
+</html>
