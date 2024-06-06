@@ -35,7 +35,7 @@
             });
             var jsonStr = JSON.stringify(json);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://api.github.com/repos//ocram1905/ocramtrash/issues");
+            xhr.open("POST", "https://api.github.com/repos/ocram1905/ocramtrash/issues");
             xhr.setRequestHeader("Authorization", "Bearer YOUR_GITHUB_TOKEN");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(jsonStr);
