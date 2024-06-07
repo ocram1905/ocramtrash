@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposta di Caricamento Video</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_USER_ID");
+        })();
+    </script>
 </head>
 <body>
     <h1>Proposta di Caricamento Video</h1>
@@ -28,25 +34,31 @@
     <script>
         document.getElementById("uploadForm").addEventListener("submit", function(event) {
             event.preventDefault();
+            
             var formData = new FormData(this);
+            var videoFile = formData.get('video');
+
+            // Convert the FormData object to a simple object
             var json = {};
             formData.forEach(function(value, key){
                 json[key] = value;
             });
-            var jsonStr = JSON.stringify(json);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://api.github.com/repos/ocram1905/ocramtrash/issues");
-            xhr.setRequestHeader("Authorization", "Bearer YOUR_GITHUB_TOKEN");
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(jsonStr);
-            xhr.onload = function() {
-                if (xhr.status === 201) {
-                    alert("Proposta di caricamento video inviata con successo!");
-                    document.getElementById("uploadForm").reset();
-                } else {
-                    alert("Si è verificato un errore durante l'invio della proposta.");
-                }
-            };
+
+            // Use EmailJS to send the form data via email
+            emailjs.send("service_pk0d2uu","template_wtq8wea"); {
+                title: json.title,
+                description: json.description,
+                category: json.category,
+                video: videoFile.name
+            })
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert("Proposta di caricamento video inviata con successo!");
+                document.getElementById("uploadForm").reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert("Si è verificato un errore durante l'invio della proposta.");
+            });
         });
     </script>
 </body>
