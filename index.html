@@ -3,67 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4x4 Video Grid</title>
+    <title>Video Player</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="grid-container">
-        <div class="grid">
-            <div class="grid-item" data-video="videos/video1.mp4">
-    <img src="videos/thumbnail1.jpg" alt="Video 1 Thumbnail">
+    <div class="video-container">
+        <div class="video-item" data-video="videos/video1.mp4">
+            <img src="thumbnails/thumbnail1.jpg" alt="Video Thumbnail">
+            <span class="play-button">&#9658;</span>
         </div>
-           <div class="grid-item" data-video="videos/video2.mp4">
-    <img src="videos/thumbnail1.jpg" alt="Video 2 Thumbnail">
+        <!-- Aggiungi gli altri video con miniature e pulsanti di riproduzione -->
     </div>
-            <div class="grid-item" data-video="videos/video3.mp4">
-    <img src="videos/thumbnail1.jpg" alt="Video 3 Thumbnail">
-    </div>
-            <div class="grid-item" data-video="video4.mp4">
-                <img src="thumbnail4.jpg" alt="Video 4 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video5.mp4">
-                <img src="thumbnail5.jpg" alt="Video 5 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video6.mp4">
-                <img src="thumbnail6.jpg" alt="Video 6 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video7.mp4">
-                <img src="thumbnail7.jpg" alt="Video 7 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video8.mp4">
-                <img src="thumbnail8.jpg" alt="Video 8 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video9.mp4">
-                <img src="thumbnail9.jpg" alt="Video 9 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video10.mp4">
-                <img src="thumbnail10.jpg" alt="Video 10 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video11.mp4">
-                <img src="thumbnail11.jpg" alt="Video 11 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video12.mp4">
-                <img src="thumbnail12.jpg" alt="Video 12 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video13.mp4">
-                <img src="thumbnail13.jpg" alt="Video 13 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video14.mp4">
-                <img src="thumbnail14.jpg" alt="Video 14 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video15.mp4">
-                <img src="thumbnail15.jpg" alt="Video 15 Thumbnail">
-            </div>
-            <div class="grid-item" data-video="video16.mp4">
-                <img src="thumbnail16.jpg" alt="Video 16 Thumbnail">
-            </div>
-        </div>
-        <div class="video-player">
-            <video id="video-player" controls>
-                <source id="video-source" src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+    <div class="video-player">
+        <video id="main-video" controls>
+            <source id="video-source" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
     <script src="script.js"></script>
 </body>
