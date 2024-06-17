@@ -58,7 +58,7 @@ main {
 .product video {
     width: 100%; /* Video occupa tutta la larghezza del suo contenitore */
     height: auto; /* Mantiene le proporzioni */
-    max-height: 150px; /* Limita l'altezza per renderli più piccoli */
+    max-height: 120px; /* Limita l'altezza per renderli più piccoli */
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -73,16 +73,6 @@ main {
     font-size: 0.9rem; /* Ridotto per adattarsi meglio */
     text-decoration: none; /* Rimuove la sottolineatura */
     display: inline-block; /* Per il padding corretto */
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 /* Media Queries for Responsiveness */
@@ -119,6 +109,6 @@ footer {
 
     .product video {
         width: 100%; /* Video occupa tutta la larghezza del suo contenitore */
-        max-height: 150px; /* Limita l'altezza per renderli più piccoli */
+        max-height: 120px; /* Limita l'altezza per renderli più piccoli */
     }
 }
