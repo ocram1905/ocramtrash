@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     submitPassword.addEventListener('click', function() {
         if (passwordInput.value === correctPassword) {
-            window.location.href = 'path_to_video4/video4.mp4'; // Sostituisci 'path_to_video4' con il percorso effettivo
+            window.location.href = 'video4.mp4'; // Sostituisci 'path_to_video4' con il percorso effettivo
         } else {
             passwordError.style.display = 'block';
         }
