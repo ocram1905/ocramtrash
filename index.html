@@ -3,63 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta di Caricamento Video</title>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("YOUR_USER_ID");
-        })();
-    </script>
+    <title>4x4 Video Grid</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Proposta di Caricamento Video</h1>
-    <form id="uploadForm">
-        <label for="title">Titolo:</label><br>
-        <input type="text" id="title" name="title" required><br>
-        <label for="description">Descrizione:</label><br>
-        <textarea id="description" name="description" rows="4" required></textarea><br>
-        <label for="video">Carica Video:</label><br>
-        <input type="file" id="video" name="video" accept="video/*" required><br>
-        <label for="category">Categoria:</label><br>
-        <select id="category" name="category" required>
-            <option value="">Seleziona una categoria</option>
-            <option value="Sport">Sport</option>
-            <option value="Musica">Musica</option>
-            <option value="Cucina">Cucina</option>
-            <!-- Aggiungi altre categorie secondo necessità -->
-        </select><br>
-        <button type="submit">Invia Proposta</button>
-    </form>
-
-    <script>
-        document.getElementById("uploadForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            var formData = new FormData(this);
-            var videoFile = formData.get('video');
-
-            // Convert the FormData object to a simple object
-            var json = {};
-            formData.forEach(function(value, key){
-                json[key] = value;
-            });
-
-            // Use EmailJS to send the form data via email
-            emailjs.send("service_pk0d2uu","template_wtq8wea"); {
-                title: json.title,
-                description: json.description,
-                category: json.category,
-                video: videoFile.name
-            })
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                alert("Proposta di caricamento video inviata con successo!");
-                document.getElementById("uploadForm").reset();
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert("Si è verificato un errore durante l'invio della proposta.");
-            });
-        });
-    </script>
+    <div class="grid-container">
+        <div class="grid">
+            <div class="grid-item" data-video="video/9844511-hd_1080_1920_30fps.mp4">
+                <img src="thumbnail1.jpg" alt="Video 1 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video2.mp4">
+                <img src="thumbnail2.jpg" alt="Video 2 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video3.mp4">
+                <img src="thumbnail3.jpg" alt="Video 3 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video4.mp4">
+                <img src="thumbnail4.jpg" alt="Video 4 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video5.mp4">
+                <img src="thumbnail5.jpg" alt="Video 5 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video6.mp4">
+                <img src="thumbnail6.jpg" alt="Video 6 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video7.mp4">
+                <img src="thumbnail7.jpg" alt="Video 7 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video8.mp4">
+                <img src="thumbnail8.jpg" alt="Video 8 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video9.mp4">
+                <img src="thumbnail9.jpg" alt="Video 9 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video10.mp4">
+                <img src="thumbnail10.jpg" alt="Video 10 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video11.mp4">
+                <img src="thumbnail11.jpg" alt="Video 11 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video12.mp4">
+                <img src="thumbnail12.jpg" alt="Video 12 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video13.mp4">
+                <img src="thumbnail13.jpg" alt="Video 13 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video14.mp4">
+                <img src="thumbnail14.jpg" alt="Video 14 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video15.mp4">
+                <img src="thumbnail15.jpg" alt="Video 15 Thumbnail">
+            </div>
+            <div class="grid-item" data-video="video16.mp4">
+                <img src="thumbnail16.jpg" alt="Video 16 Thumbnail">
+            </div>
+        </div>
+        <div class="video-player">
+            <video id="video-player" controls>
+                <source id="video-source" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
