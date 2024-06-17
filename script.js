@@ -1,39 +1,53 @@
-// script.js
 document.addEventListener("DOMContentLoaded", function() {
-    const buyButtons = document.querySelectorAll('.buy-button');
-    const cart = document.querySelector('.cart');
-    const cartItems = document.querySelector('.cart-items');
-    const cartTotal = document.getElementById('cart-total');
-    const checkoutButton = document.getElementById('checkout-button');
-    const cartToggle = document.querySelector('.cart-toggle');
+    const downloadButtons = document.querySelectorAll('.download-button');
+    const protectedButton = document.getElementById('download-button-protected');
+    const passwordPrompt = document.getElementById('password-prompt');
+    const submitPassword = document.getElementById('submit-password');
+    const passwordInput = document.getElementById('password');
+    const passwordError = document.getElementById('password-error');
+    
+    const correctPassword = "your_password"; // Set the correct password here
 
-    let total = 0;
+    // Event listener for protected video download button
+    protectedButton.addEventListener('click', function() {
+        passwordPrompt.style.display = 'block';
+    });
 
-    buyButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const videoSrc = this.getAttribute('data-video');
-            const price = parseInt(this.getAttribute('data-price'));
+    // Event listener for password submission
+    submitPassword.addEventListener('click', function() {
+        if (passwordInput.value === correctPassword) {
+            const link = document.createElement('a');
+            link.href = 'videos/video4.mp4';
+            link.download = 'video4.mp4';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            passwordError.style.display = 'block';
+        }
+    });
 
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `
-                <span>Video: ${videoSrc}</span>
-                <span>Price: $${price}</span>
-            `;
-            cartItems.appendChild(listItem);
+    // Hide password prompt when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (!passwordPrompt.contains(event.target) && event.target !== protectedButton) {
+            passwordPrompt.style.display = 'none';
+            passwordError.style.display = 'none';
+        }
+    });
 
-            total += price;
-            cartTotal.textContent = `$${total}`;
+    // Event listeners for download buttons
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            if (this.id !== 'download-button-protected') {
+                const videoSrc = this.getAttribute('href');
+                const link = document.createElement('a');
+                link.href = videoSrc;
+                link.download = videoSrc.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                event.preventDefault();
+            }
         });
-    });
-
-    cartToggle.addEventListener('click', function() {
-        cart.classList.toggle('open');
-    });
-
-    checkoutButton.addEventListener('click', function() {
-        alert(`Total amount to pay: $${total}`);
-        cartItems.innerHTML = '';
-        cartTotal.textContent = '$0';
-        total = 0;
     });
 });
