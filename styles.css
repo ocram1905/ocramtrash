@@ -75,10 +75,23 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    right: -300px; /* Nascondo il carrello nella visualizzazione mobile */
+    height: 100%;
+    width: 300px;
+    transition: right 0.3s ease;
+    z-index: 1000; /* Assicura che il carrello sia sopra il contenuto principale */
 }
 
-.cart h2 {
-    margin-top: 0;
+.cart.open {
+    right: 0; /* Apre il carrello quando ha la classe 'open' */
+}
+
+.cart-content {
+    overflow-y: auto;
+    height: calc(100% - 60px); /* Altezza del carrello meno il padding */
+    padding-bottom: 60px; /* Spazio per il pulsante Checkout */
 }
 
 .cart-items {
@@ -90,7 +103,17 @@ main {
     margin-bottom: 10px;
 }
 
+.cart-items li span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
 #checkout-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #1E90FF;
     color: #fff;
     border: none;
@@ -98,6 +121,20 @@ main {
     cursor: pointer;
     border-radius: 4px;
     font-size: 1rem;
+}
+
+.cart-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #1E90FF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    z-index: 1100; /* Assicura che sia sopra tutto, anche il carrello */
 }
 
 footer {
@@ -126,6 +163,16 @@ footer {
 
     .product {
         width: 100%;
+    }
+    
+    .cart {
+        width: 100%;
+        right: -100%; /* Nascondo completamente il carrello */
+        border-radius: 0;
+    }
+
+    .cart.open {
+        right: 0;
     }
 }
 
