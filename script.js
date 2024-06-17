@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const passwordInput = document.getElementById('password');
     const passwordError = document.getElementById('password-error');
     
-    const correctPassword = "your_password"; // Set the correct password here
+    const correctPassword = "13/02/2022"; // Set the correct password here
 
     // Event listener for protected video download button
     protectedButton.addEventListener('click', function() {
