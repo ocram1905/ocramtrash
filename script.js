@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     submitPassword.addEventListener('click', function() {
         if (passwordInput.value === correctPassword) {
             const link = document.createElement('a');
-            link.href = 'videos/video4.mp4';
+            link.href = 'video4.mp4';
             link.download = 'video4.mp4';
             document.body.appendChild(link);
             link.click();
