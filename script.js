@@ -19,25 +19,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 <span>Video: ${videoSrc}</span>
                 <span>Price: $${price}</span>
             `;
-
             cartItems.appendChild(listItem);
 
             total += price;
             cartTotal.textContent = `$${total}`;
-
-            // Apri il carrello automaticamente quando viene aggiunto un prodotto
-            cart.classList.add('open');
         });
-    });
-
-    checkoutButton.addEventListener('click', function() {
-        alert(`Total amount to pay: $${total}. Thank you for your purchase!`);
-        cartItems.innerHTML = '';
-        cartTotal.textContent = '$0';
-        total = 0;
     });
 
     cartToggle.addEventListener('click', function() {
         cart.classList.toggle('open');
+    });
+
+    checkoutButton.addEventListener('click', function() {
+        alert(`Total amount to pay: $${total}`);
+        cartItems.innerHTML = '';
+        cartTotal.textContent = '$0';
+        total = 0;
     });
 });
