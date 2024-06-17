@@ -40,9 +40,24 @@
                     <p>Awesome video 3 description.</p>
                     <a href="videos/video3.mp4" download class="download-button">Download</a>
                 </div>
-                <!-- Add more video products as needed -->
+                <div class="product">
+                    <video controls>
+                        <source src="videos/video4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h2>Video 4 (Protected)</h2>
+                    <p>Protected video 4 description.</p>
+                    <button class="download-button" id="download-button-protected">Download</button>
+                    <div id="password-prompt" class="password-prompt">
+                        <label for="password">Enter password:</label>
+                        <input type="password" id="password">
+                        <button id="submit-password">Submit</button>
+                        <p id="password-error" style="display:none; color:red;">Incorrect password. Try again.</p>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
