@@ -54,9 +54,8 @@ main {
 }
 
 .product video {
-    width: 100%;
+    width: 100%; /* Video occupa tutta la larghezza del suo contenitore */
     border-radius: 8px;
-    margin-bottom: 10px;
 }
 
 .buy-button {
@@ -187,5 +186,10 @@ footer {
 
     .product {
         padding: 15px;
+    }
+
+    .product video {
+        border-radius: 8px;
+        width: 100%; /* Video occupa tutta la larghezza del suo contenitore */
     }
 }
