@@ -75,7 +75,10 @@ main {
     display: inline-block; /* Per il padding corretto */
 }
 
-/* Media Queries for Responsiveness */
+.password-prompt {
+    display: none;
+    margin-top: 10px;
+}
 
 @media (max-width: 1024px) {
     .product {
