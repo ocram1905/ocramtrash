@@ -8,19 +8,25 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.video-scroll {
+    display: inline-flex;
+    padding: 10px;
 }
 
 .video-item {
     position: relative;
     cursor: pointer;
     transition: transform 0.2s;
-    margin: 10px;
+    margin-right: 10px;
 }
 
 .video-item img {
