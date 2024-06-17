@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const passwordInput = document.getElementById('password');
     const passwordError = document.getElementById('password-error');
     
-    const correctPassword = "your_password"; // Imposta la password corretta qui
+    const correctPassword = "13/02/2022"; // Imposta la password corretta qui
 
     protectedButton.addEventListener('click', function() {
         passwordPrompt.style.display = 'block';
