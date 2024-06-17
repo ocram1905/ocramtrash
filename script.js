@@ -1,9 +1,11 @@
 // script.js
 document.addEventListener("DOMContentLoaded", function() {
     const buyButtons = document.querySelectorAll('.buy-button');
+    const cart = document.querySelector('.cart');
     const cartItems = document.querySelector('.cart-items');
     const cartTotal = document.getElementById('cart-total');
     const checkoutButton = document.getElementById('checkout-button');
+    const cartToggle = document.querySelector('.cart-toggle');
 
     let total = 0;
 
@@ -13,12 +15,18 @@ document.addEventListener("DOMContentLoaded", function() {
             const price = parseInt(this.getAttribute('data-price'));
 
             const listItem = document.createElement('li');
-            listItem.textContent = `Video: ${videoSrc} - Price: $${price}`;
+            listItem.innerHTML = `
+                <span>Video: ${videoSrc}</span>
+                <span>Price: $${price}</span>
+            `;
 
             cartItems.appendChild(listItem);
 
             total += price;
             cartTotal.textContent = `$${total}`;
+
+            // Apri il carrello automaticamente quando viene aggiunto un prodotto
+            cart.classList.add('open');
         });
     });
 
@@ -27,5 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
         cartItems.innerHTML = '';
         cartTotal.textContent = '$0';
         total = 0;
+    });
+
+    cartToggle.addEventListener('click', function() {
+        cart.classList.toggle('open');
     });
 });
